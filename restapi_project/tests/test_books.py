@@ -13,7 +13,12 @@ class BooksTestCase(unittest.TestCase):
     def test_ping(self):
         response = self.app.get('/ping')
         self.assertEqual(response.status_code, 200)
-        # Bug: ping does not return JSON so this fails
+        self.assertEqual(response.get_json(), {'status': 'ok'})
+
+    def test_count_books(self):
+        response = self.app.get('/books/count')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('count', response.get_json())
 
 if __name__ == '__main__':
     unittest.main()

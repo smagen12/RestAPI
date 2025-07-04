@@ -47,7 +47,6 @@ def delete_book(book_id):
             return jsonify({'message': 'Book deleted'})
     return jsonify({'message': 'Book not found'}), 404
 
-# Intentional typo
-@books_bp.route('/bokks/count', methods=['GET'])
+@books_bp.route('/books/count', methods=['GET'])
 def count_books():
     return jsonify({'count': len(books)})
