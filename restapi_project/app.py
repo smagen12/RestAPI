@@ -8,9 +8,7 @@ app.register_blueprint(books_bp)
 
 @app.route('/ping')
 def ping():
-    status = {'status': 'ok'}
-    # Forgot to return -- intentional bug!
-
-# Intentional bug: forgot to protect main
+    return jsonify({'status': 'ok'}), 200
+    
 if __name__ == '__main__':
     app.run(debug=True)
